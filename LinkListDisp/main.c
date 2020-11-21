@@ -29,11 +29,21 @@ void create(int A[],int n )
     }
     
 }
+void Display(struct Node *p)
+{
+    while (p!=NULL)
+    {
+        printf("%d ",p->data);
+        p=p->next;
+        
+    }
+}
 int main()
 {
     
     int A[]={3,5,7,10,15};
-    create(A, 4);
+    create(A, 5);
     
+    Display(first);
     return 0;
 }
