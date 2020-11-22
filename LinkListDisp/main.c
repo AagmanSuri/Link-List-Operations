@@ -44,6 +44,15 @@ void RDisplay(struct Node *p)
         RDisplay(p->next);
     }
 }
+int count(struct Node *p)
+{   int l=0;
+    while (p)
+    {
+        l++;
+        p=p->next;
+    }
+    return l;
+}
 
 int main()
 {
@@ -52,6 +61,7 @@ int main()
     create(A, 5);
     
     //Display(first);
-    RDisplay(first);
+    //RDisplay(first);
+    printf("%d\n",count(first));
     return 0;
 }
