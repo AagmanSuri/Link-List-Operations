@@ -53,6 +53,15 @@ int count(struct Node *p)
     }
     return l;
 }
+int sum(struct Node *p)
+{   int sum=0;
+    while(p)
+    {
+        sum=sum+p->data;
+        p=p->next;
+    }
+    return sum;
+}
 
 int main()
 {
@@ -62,6 +71,7 @@ int main()
     
     //Display(first);
     //RDisplay(first);
-    printf("%d\n",count(first));
+    //printf("Count is %d\n",count(first));
+    printf("Sum is %d\n",sum(first));
     return 0;
 }
