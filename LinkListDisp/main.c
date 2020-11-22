@@ -27,7 +27,6 @@ void create(int A[],int n )
         last->next=t;
         last = t;
     }
-    
 }
 void Display(struct Node *p)
 {
@@ -35,7 +34,6 @@ void Display(struct Node *p)
     {
         printf("%d ",p->data);
         p=p->next;
-        
     }
 }
 int main()
