@@ -62,7 +62,17 @@ int sum(struct Node *p)
     }
     return sum;
 }
-
+int Rsum(struct Node *p)
+{
+    if(p==NULL)
+    {
+        return 0;
+    }
+    else
+    {
+        return Rsum(p->next)+p->data;
+    }
+}
 int main()
 {
     
@@ -72,6 +82,7 @@ int main()
     //Display(first);
     //RDisplay(first);
     //printf("Count is %d\n",count(first));
-    printf("Sum is %d\n",sum(first));
+    //printf("Sum is %d\n",sum(first));
+    printf("The sum is %d",Rsum(first));
     return 0;
 }
