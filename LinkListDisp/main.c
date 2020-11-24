@@ -73,16 +73,32 @@ int Rsum(struct Node *p)
         return Rsum(p->next)+p->data;
     }
 }
+int max(struct Node *p)
+{
+    int m =-32768;
+    while(p)
+    {
+        if(p->data>m)
+        {
+            m=p->data;
+        }
+        p=p->next;
+    }
+    return m;
+}
+
 int main()
 {
     
-    int A[]={3,5,7,10,15};
+    int A[]={3,5,7,70,15};
     create(A, 5);
     
     //Display(first);
     //RDisplay(first);
     //printf("Count is %d\n",count(first));
     //printf("Sum is %d\n",sum(first));
-    printf("The sum is %d",Rsum(first));
+    //printf("The sum is %d",Rsum(first));
+    printf("The maximum is %d",max(first));
+  
     return 0;
 }
