@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-struct Node// The structure 
+struct Node// The structure
 {
     int data;
     struct Node * next;
@@ -99,6 +99,7 @@ int main()
     //printf("Sum is %d\n",sum(first));
     //printf("The sum is %d",Rsum(first));
     printf("The maximum is %d",max(first));
+    //start
   
     return 0;
 }
