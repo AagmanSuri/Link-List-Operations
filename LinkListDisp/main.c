@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-struct Node// The structure
+struct Node// The structure check
 {
     int data;
     struct Node * next;
