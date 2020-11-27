@@ -25,7 +25,7 @@ void create(int A[],int n )
         t->data=A[i];
         t->next=NULL;
         last->next=t;
-        last = t;
+        last = t;//last should move on to t and t should make a new node
     }
 }
 void Display(struct Node *p)
@@ -87,19 +87,41 @@ int max(struct Node *p)
     return m;
 }
 
+struct Node * Lsearch(struct Node *p, int key )
+{
+    while(p!=NULL)
+    {
+        if(key==p->data)
+        {
+            return p;
+        }
+        p=p->next;
+    }
+    return NULL;
+}
+
 int main()
 {
     
     int A[]={3,5,7,70,15};
     create(A, 5);
-    
+    struct Node *temp;
+    temp=Lsearch(first,7);
     //Display(first);
     //RDisplay(first);
     //printf("Count is %d\n",count(first));
     //printf("Sum is %d\n",sum(first));
     //printf("The sum is %d",Rsum(first));
-    printf("The maximum is %d",max(first));
-    //start
-  
+    //printf("The maximum is %d",max(first));
+    if(temp)
+    {
+        printf("key is found  %d",temp->data);
+    }
+    else
+    {
+        printf("Key not found");
+        
+    }
+      
     return 0;
 }
