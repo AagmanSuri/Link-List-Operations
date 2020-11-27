@@ -75,7 +75,7 @@ int Rsum(struct Node *p)
 }
 int max(struct Node *p)
 {
-    int m =-32768;
+    int m =INT32_MIN;//-32768
     while(p)
     {
         if(p->data>m)
