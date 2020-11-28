@@ -105,32 +105,55 @@ struct Node * Lsearch(struct Node *p, int key )
     }
     return NULL;
 }
-void Insert(struct Node *p,int pos)
-{
-    if()
+void Insert(struct Node *p,int index,int x)
+{   int i;
+    struct Node *t;
+    if(index < 0 || index > count(p))
+    {
+        return;
+    }
+    t= (struct Node *)malloc(sizeof(struct Node));
+    t->data=x;
+    if(index ==0)
+    {
+        t->next=first;
+        first=t;
+    }
+    else
+    {
+        for(i=1;i<index-1;i++)
+        {
+            p=p->next;
+        }
+        t->next=p->next;
+        p->next=t;
+        
+    }
 }
 int main()
 {
     
-    int A[]={3,5,7,70,15};
-    create(A, 5);
-    struct Node *temp;
-    temp=Lsearch(first,7);
+    int A[]={3,5,7};
+    create(A,3);
+//    struct Node *temp;
+//    temp=Lsearch(first,7);
     //Display(first);
     //RDisplay(first);
     //printf("Count is %d\n",count(first));
     //printf("Sum is %d\n",sum(first));
     //printf("The sum is %d",Rsum(first));
     //printf("The maximum is %d",max(first));
-    if(temp)
-    {
-        printf("key is found  %d",temp->data);
-    }
-    else
-    {
-        printf("Key not found");
-        
-    }
+//    if(temp)
+//    {
+//        printf("key is found  %d",temp->data);
+//    }
+//    else
+//    {
+//        printf("Key not found");
+//
+//    }
+    
+    Insert(first,0,10);
     Display(first);
     return 0;
     
