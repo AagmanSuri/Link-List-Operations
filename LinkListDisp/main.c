@@ -105,7 +105,10 @@ struct Node * Lsearch(struct Node *p, int key )
     }
     return NULL;
 }
-
+void Insert(struct Node *p,int pos)
+{
+//    if()
+}
 int main()
 {
     
