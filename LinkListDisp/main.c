@@ -28,6 +28,7 @@ void create(int A[],int n )
         last = t;//last should move on to t and t should make a new node
     }
 }
+
 void Display(struct Node *p)
 {
     while(p!=NULL)
@@ -36,6 +37,7 @@ void Display(struct Node *p)
         p=p->next;
     }
 }
+
 void RDisplay(struct Node *p)
 {
     if(p!=NULL)
@@ -44,6 +46,7 @@ void RDisplay(struct Node *p)
         RDisplay(p->next);
     }
 }
+
 int count(struct Node *p)
 {   int l=0;
     while (p)
@@ -53,6 +56,7 @@ int count(struct Node *p)
     }
     return l;
 }
+
 int sum(struct Node *p)
 {   int sum=0;
     while(p)
@@ -62,6 +66,7 @@ int sum(struct Node *p)
     }
     return sum;
 }
+
 int Rsum(struct Node *p)
 {
     if(p==NULL)
@@ -73,6 +78,7 @@ int Rsum(struct Node *p)
         return Rsum(p->next)+p->data;
     }
 }
+
 int max(struct Node *p)
 {
     int m =INT32_MIN;//-32768
@@ -105,6 +111,7 @@ struct Node * Lsearch(struct Node *p, int key )
     }
     return NULL;
 }
+
 void Insert(struct Node *p,int index,int x)
 {   int i;
     struct Node *t;
@@ -130,6 +137,55 @@ void Insert(struct Node *p,int index,int x)
         
     }
 }
+
+void Insertlast(int x)
+{
+    struct Node *t,*last=NULL;
+    t= (struct Node*)malloc(sizeof(struct Node));
+    t->data=x;
+    t->next=NULL;
+    if(first==NULL)
+    {
+        first=t;
+        last=t;
+    }
+    else
+    {
+        last->next=t;
+        last=t;
+    }
+}
+
+void SortedInsert(struct Node *p, int x)
+{
+    struct Node *t,*q=NULL;
+    t= (struct Node *)malloc(sizeof(struct Node));
+    t->data=x;
+    t->next=NULL;
+    if(first==NULL)
+    {
+        first=t;
+    }
+    else
+    {
+        while(p && p->data<x)
+        {
+            q=p;
+            p=p->next;
+        }
+        if(p==first)
+        {
+            t->next=first;
+            first=t;
+        }
+        else
+        {
+            t->next=q->next;
+            q->next=t;
+        }
+    }
+}
+
 int main()
 {
     
@@ -153,7 +209,13 @@ int main()
 //
 //    }
     
-    Insert(first,0,10);
+    //Insert(first,0,10);
+    //Insert(first,0,9);
+    //Insert(first,0,8);
+    //Insertlast(3);
+    SortedInsert(first, 1);
+    SortedInsert(first, 2);
+    SortedInsert(first, 6);
     Display(first);
     return 0;
     
