@@ -236,18 +236,32 @@ int isSortedlink(struct Node *p)
         }
     }
     return 1;
-    
-    
 }
-
+void RemoveDuplicate(struct Node *p)
+{   struct Node *q=p->next;
+    while(q)
+    {
+    if(p->data!=q->data)
+    {
+        p=q;
+        q=q->next;
+    }
+    else
+    {
+        p->next=q->next;
+        free(q);
+        q=p->next;
+    }
+}
+}
 int main()
 {
     // Uncomment these commands to run the commands
      
     
     
-    int A[]={3,5,7,110,14};
-    create(A,5);
+    int A[]={3,5,7,10,10,10,10,8,8,2,2};
+    create(A,11);
 //    struct Node *temp;
 //    temp=Lsearch(first,7);
     //Display(first);
@@ -274,14 +288,15 @@ int main()
 //    SortedInsert(first, 2);
 //    SortedInsert(first, 6);
     //Delete(first, 1);
-    if(isSortedlink(first))
-    {
-        printf("Sorted\n");
-    }
-    else
-    {
-        printf("Not Sorted\n");
-    }
+//    if(isSortedlink(first))
+//    {
+//        printf("Sorted\n");
+//    }
+//    else
+//    {
+//        printf("Not Sorted\n");
+//    }
+    RemoveDuplicate(first);
     Display(first);
     return 0;
     
