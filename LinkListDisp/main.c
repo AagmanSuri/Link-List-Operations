@@ -254,6 +254,7 @@ void RemoveDuplicate(struct Node *p)
     }
 }
 }
+
  
 int main()
 {
@@ -261,8 +262,11 @@ int main()
      
     
     
-    int A[]={3,5,7,10,10,10,10,8,8,2,2};
-    create(A,11);
+    
+    int A[]={10,20,30,40,50};
+    create(A,5);
+    //for creating a loop to check is loop 
+    
 //    struct Node *temp;
 //    temp=Lsearch(first,7);
     //Display(first);
@@ -301,6 +305,6 @@ int main()
     Display(first);
     return 0;
     
-}//
+}
 
 
