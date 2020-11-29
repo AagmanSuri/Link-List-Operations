@@ -221,10 +221,32 @@ int Delete(struct Node *p,int index)
     
 }
 
+int isSortedlink(struct Node *p)
+{
+    int x = -65536;
+    while(p)
+    {
+        if(p->data<x)
+            return 0;
+        else
+        {
+            x=p->data;
+            p=p->next;
+            
+        }
+    }
+    return 1;
+    
+    
+}
+
 int main()
 {
     // Uncomment these commands to run the commands
-    int A[]={3,5,7,10,14};
+     
+    
+    
+    int A[]={3,5,7,110,14};
     create(A,5);
 //    struct Node *temp;
 //    temp=Lsearch(first,7);
@@ -251,7 +273,15 @@ int main()
 //    SortedInsert(first, 1);
 //    SortedInsert(first, 2);
 //    SortedInsert(first, 6);
-    Delete(first, 1);
+    //Delete(first, 1);
+    if(isSortedlink(first))
+    {
+        printf("Sorted\n");
+    }
+    else
+    {
+        printf("Not Sorted\n");
+    }
     Display(first);
     return 0;
     
