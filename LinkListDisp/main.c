@@ -254,18 +254,38 @@ void RemoveDuplicate(struct Node *p)
     }
 }
 }
-
+int isloop(struct Node *f)
+{
+    struct Node *p,*q;
+    p=q=f;
+    do
+    {
+        p=p->next;
+        q=q->next;
+        q=q?q->next:q;   // if q is not null then q will move to next node otherwise it will remain their only
+    }while(p && q && p!=q);
+        if(p==q)
+        {
+            return 1 ;
+        }
+        else
+        {
+            return 0;
+        }
+}
  
 int main()
 {
     // Uncomment these commands to run the commands
      
-    
-    
-    
     int A[]={10,20,30,40,50};
     create(A,5);
-    //for creating a loop to check is loop 
+    //for creating a loop to check is loop
+    
+//    struct Node *t1,*t2;
+//    t1=first->next->next->next;
+//    t2=first->next->next->next->next;
+//    t2->next=t1;
     
 //    struct Node *temp;
 //    temp=Lsearch(first,7);
@@ -301,7 +321,8 @@ int main()
 //    {
 //        printf("Not Sorted\n");
 //    }
-    RemoveDuplicate(first);
+    //RemoveDuplicate(first);
+    printf("%d\n",isloop(first));
     Display(first);
     return 0;
     
