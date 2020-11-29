@@ -185,12 +185,47 @@ void SortedInsert(struct Node *p, int x)
         }
     }
 }
+int Delete(struct Node *p,int index)
+{
+    struct Node *q=q=NULL;
+    int x=-1,i;
+    if(index<1 || index>count(p))
+    {
+        return -1;
+    }
+    else
+    {
+        if(index==1)
+        {
+            x=first->data;
+            q=first;
+            first=first->next;
+            free(p);
+            return x;
+        }
+        else
+        {
+            
+            for(i=0;i<index-1;i++)
+            {
+                q=p;
+                p=p->next;
+                
+            }
+            x=p->data;
+            q->next=p->next;
+            free(p);
+            return x;
+        }
+    }
+    
+}
 
 int main()
 {
-    
-    int A[]={3,5,7};
-    create(A,3);
+    // Uncomment these commands to run the commands
+    int A[]={3,5,7,10,14};
+    create(A,5);
 //    struct Node *temp;
 //    temp=Lsearch(first,7);
     //Display(first);
@@ -213,11 +248,13 @@ int main()
     //Insert(first,0,9);
     //Insert(first,0,8);
     //Insertlast(3);
-    SortedInsert(first, 1);
-    SortedInsert(first, 2);
-    SortedInsert(first, 6);
+//    SortedInsert(first, 1);
+//    SortedInsert(first, 2);
+//    SortedInsert(first, 6);
+    Delete(first, 1);
     Display(first);
     return 0;
     
 }
+
 
